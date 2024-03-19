@@ -8,3 +8,16 @@ captures
 .cxx
 local.properties
 xcuserdata
+
+# iOS-specific files
+iosApp.xcodeproj/
+iosApp.xcworkspace/
+DerivedData/
+iosApp/build/
+*.xcuserdatad/
+
+# KMM-specific files
+shared/build/bin/
+build/build.log
+build/kotlin-build-report.html
+build/kotlin-report.html
