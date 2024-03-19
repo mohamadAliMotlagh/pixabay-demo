@@ -17,3 +17,4 @@ dependencyResolutionManagement {
 rootProject.name = "pixabay"
 include(":androidApp")
 include(":shared")
+include(":resources")
