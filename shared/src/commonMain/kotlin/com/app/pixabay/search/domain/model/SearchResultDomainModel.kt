@@ -11,5 +11,5 @@ data class SearchResultDomainModel(
     val downloadsCount: Int,
     val commentsCount: Int,
     val name: String,
-    val username: String
+    val username: String,
 )

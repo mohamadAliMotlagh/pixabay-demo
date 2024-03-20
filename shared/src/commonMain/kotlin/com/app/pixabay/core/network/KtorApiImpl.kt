@@ -16,27 +16,30 @@ import kotlinx.serialization.json.Json
 class KtorApiImpl : KtorApi {
     private val baseURl = "https://pixabay.com/"
 
-    override val client = HttpClient {
+    override val client =
+        HttpClient {
 
-        install(ContentNegotiation) {
-            json(Json {
-                prettyPrint = true
-                isLenient = true
-                ignoreUnknownKeys = true
-            })
-        }
+            install(ContentNegotiation) {
+                json(
+                    Json {
+                        prettyPrint = true
+                        isLenient = true
+                        ignoreUnknownKeys = true
+                    },
+                )
+            }
 
-        install(Logging) {
-            logger = Logger.SIMPLE
-            level = LogLevel.ALL
-        }
+            install(Logging) {
+                logger = Logger.SIMPLE
+                level = LogLevel.ALL
+            }
 
-        install(HttpTimeout) {
-            requestTimeoutMillis = 120_000
-            connectTimeoutMillis = 120_000
-            socketTimeoutMillis = 120_000
+            install(HttpTimeout) {
+                requestTimeoutMillis = 120_000
+                connectTimeoutMillis = 120_000
+                socketTimeoutMillis = 120_000
+            }
         }
-    }
 
     override fun HttpRequestBuilder.apiUrl(path: String) {
         url {

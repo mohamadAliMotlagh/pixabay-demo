@@ -1,6 +1,5 @@
 package com.app.pixabay.search.data.model
 
-
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -11,5 +10,5 @@ data class SearchResultDataModel(
     @SerialName("total")
     val total: Int?,
     @SerialName("totalHits")
-    val totalHits: Int?
+    val totalHits: Int?,
 )

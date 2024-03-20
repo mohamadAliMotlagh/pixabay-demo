@@ -1,8 +1,20 @@
+import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
+
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
-
     kotlin("plugin.serialization")
+    id("org.jlleitschuh.gradle.ktlint")
+}
+
+ktlint {
+    android.set(true)
+    ignoreFailures.set(false)
+    reporters {
+        reporter(ReporterType.PLAIN)
+        reporter(ReporterType.CHECKSTYLE)
+        reporter(ReporterType.SARIF)
+    }
 }
 
 kotlin {
@@ -13,11 +25,11 @@ kotlin {
             }
         }
     }
-    
+
     listOf(
         iosX64(),
         iosArm64(),
-        iosSimulatorArm64()
+        iosSimulatorArm64(),
     ).forEach {
         it.binaries.framework {
             baseName = "shared"
@@ -36,17 +48,14 @@ kotlin {
             implementation(libs.koin.common)
 
             implementation(libs.kotlin.coroutine)
-
-
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
         }
         androidMain.dependencies {
             implementation(libs.ktor.okhttp)
-           // implementation(libs.koin.android)
+            // implementation(libs.koin.android)
             implementation(libs.kotlin.coroutine.android)
-
         }
 
         iosMain.dependencies {

@@ -10,6 +10,7 @@ junit = "4.13.2"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
 appcompat = "1.6.1"
+ktlintGradle = "12.1.0"
 material = "1.11.0"
 ktor = "2.3.1"
 mockative = "2.0.1"
@@ -20,6 +21,7 @@ coroutine = "1.8.0"
 
 [libraries]
 gradle = { module = "com.android.tools.build:gradle", version.ref = "agp" }
+
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 
 
@@ -32,6 +34,7 @@ compose-foundation = { module = "androidx.compose.foundation:foundation", versio
 compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "compose-material3" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+ktlint-gradle = { module = "org.jlleitschuh.gradle:ktlint-gradle", version.ref = "ktlintGradle" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 # unit test

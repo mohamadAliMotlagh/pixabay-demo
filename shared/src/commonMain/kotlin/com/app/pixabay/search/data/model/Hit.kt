@@ -1,6 +1,5 @@
 package com.app.pixabay.search.data.model
 
-
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -49,5 +48,5 @@ data class Hit(
     @SerialName("webformatURL")
     val webformatURL: String?,
     @SerialName("webformatWidth")
-    val webformatWidth: Int?
+    val webformatWidth: Int?,
 )

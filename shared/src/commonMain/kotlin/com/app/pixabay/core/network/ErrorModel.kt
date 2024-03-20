@@ -1,6 +1,5 @@
 package com.app.pixabay.core.network
 
-
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -17,5 +16,5 @@ data class ErrorModel(
     @SerialName("title")
     val title: String? = null,
     @SerialName("type")
-    val type: String? = null
+    val type: String? = null,
 )
