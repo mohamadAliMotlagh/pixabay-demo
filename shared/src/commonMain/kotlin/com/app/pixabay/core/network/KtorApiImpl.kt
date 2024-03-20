@@ -1,16 +1,18 @@
 package com.app.pixabay.core.network
 
-import io.ktor.client.*
-import io.ktor.client.call.*
-import io.ktor.client.plugins.*
-import io.ktor.client.plugins.api.*
-import io.ktor.client.plugins.contentnegotiation.*
-import io.ktor.client.plugins.logging.*
-import io.ktor.client.request.*
-import io.ktor.client.statement.*
-import io.ktor.content.*
-import io.ktor.http.*
-import io.ktor.serialization.kotlinx.json.*
+import io.ktor.client.HttpClient
+import io.ktor.client.plugins.HttpTimeout
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.client.plugins.logging.LogLevel
+import io.ktor.client.plugins.logging.Logger
+import io.ktor.client.plugins.logging.Logging
+import io.ktor.client.plugins.logging.SIMPLE
+import io.ktor.client.request.HttpRequestBuilder
+import io.ktor.http.ContentType
+import io.ktor.http.contentType
+import io.ktor.http.encodedPath
+import io.ktor.http.takeFrom
+import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 
 class KtorApiImpl : KtorApi {
