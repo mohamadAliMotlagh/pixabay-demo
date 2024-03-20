@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+
+    kotlin("plugin.serialization")
 }
 
 kotlin {
@@ -30,15 +32,23 @@ kotlin {
             implementation(libs.ktor.auth)
             implementation(libs.ktor.logging)
             implementation(libs.ktor.serialization)
+
             implementation(libs.koin.common)
+
+            implementation(libs.kotlin.coroutine)
+
+
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
         }
         androidMain.dependencies {
             implementation(libs.ktor.okhttp)
-            implementation(libs.koin.android)
+           // implementation(libs.koin.android)
+            implementation(libs.kotlin.coroutine.android)
+
         }
+
         iosMain.dependencies {
             implementation(libs.ktor.ios)
         }
@@ -55,4 +65,10 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+}
+dependencies {
+    testImplementation(libs.kotlin.test)
+    testImplementation(libs.mockk)
+    testImplementation(libs.junit)
+    testImplementation(libs.kotlin.coroutine.test)
 }

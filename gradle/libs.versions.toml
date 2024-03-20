@@ -1,5 +1,5 @@
 [versions]
-agp = "8.3.1"
+agp = "8.2.0"
 kotlin = "1.9.20"
 compose = "1.6.3"
 compose-compiler = "1.5.4"
@@ -12,11 +12,16 @@ espressoCore = "3.5.1"
 appcompat = "1.6.1"
 material = "1.11.0"
 ktor = "2.3.1"
+mockative = "2.0.1"
 serialization = "1.6.2"
 koin = "3.5.3"
+mockk = "1.13.9"
+coroutine = "1.8.0"
 
 [libraries]
+gradle = { module = "com.android.tools.build:gradle", version.ref = "agp" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
+
 
 # compose
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
@@ -33,6 +38,9 @@ material = { group = "com.google.android.material", name = "material", version.r
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+mockative = { module = "io.mockative:mockative", version.ref = "mockative" }
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+mockk-common = { module = "io.mockk:mockk-common", version.ref = "mockk" }
 
 # ktor
 ktor-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
@@ -50,7 +58,10 @@ serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", v
 koin-common = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
 
-
+# coroutine
+kotlin-coroutine = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutine" }
+kotlin-coroutine-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutine" }
+kotlin-coroutine-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutine" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
