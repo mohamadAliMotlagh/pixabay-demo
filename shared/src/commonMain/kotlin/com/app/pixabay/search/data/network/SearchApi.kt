@@ -1,4 +1,4 @@
-package com.app.pixabay.search.data
+package com.app.pixabay.search.data.network
 
 import com.app.pixabay.core.network.KtorApi
 import com.app.pixabay.core.network.get
