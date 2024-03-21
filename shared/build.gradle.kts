@@ -80,4 +80,5 @@ dependencies {
     testImplementation(libs.mockk)
     testImplementation(libs.junit)
     testImplementation(libs.kotlin.coroutine.test)
+    testImplementation("androidx.arch.core:core-testing:2.1.0")
 }
