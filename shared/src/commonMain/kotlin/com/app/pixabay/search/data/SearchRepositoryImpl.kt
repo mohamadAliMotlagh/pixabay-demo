@@ -33,9 +33,9 @@ class SearchRepositoryImpl(
     private fun loadFromLocal(query: String): Result<List<SearchResultDomainModel>> {
         val result = local.get(query)
         return if (result.isEmpty()) {
-            (Result.success(result))
-        } else {
             (Result.failure(Throwable("")))
+        } else {
+            (Result.success(result))
         }
     }
 
