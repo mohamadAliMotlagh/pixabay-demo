@@ -8,5 +8,5 @@ interface SearchLocalDataSource {
         data: List<SearchResultDomainModel>,
     )
 
-    fun get(query: String): List<SearchResultDomainModel>
+    suspend fun get(query: String): List<SearchResultDomainModel>
 }

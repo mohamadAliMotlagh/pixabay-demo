@@ -104,42 +104,45 @@ class SearchRepositoryImplTest {
             coVerify { localDataSource.get(query) }
             assert(localDataSource.get(query).isNotEmpty())
         }
-    @Test
-    fun `given failure result from api and success result from database must show a success result`() = runTest {
-        coEvery { remoteDataSource.searchWith(query) } returns Result.failure(Exception())
-        coEvery { localDataSource.get(query) } returns Dummy.searchResultDomainModel
-        givenASuccessfulMapping()
-
-        val result = sut.search(query)
-
-        assert(result.isSuccess)
-        coVerify { localDataSource.get(query) }
-        assert(localDataSource.get(query).isNotEmpty())
-    }
 
     @Test
-    fun `given failure result from Database and success result from Api must show a success result`() = runTest {
-        coEvery { remoteDataSource.searchWith(query) } returns Result.success(Dummy.searchResultDataModel)
-        coEvery { localDataSource.get(query) } returns listOf()
-        givenASuccessfulMapping()
+    fun `given failure result from api and success result from database must show a success result`() =
+        runTest {
+            coEvery { remoteDataSource.searchWith(query) } returns Result.failure(Exception())
+            coEvery { localDataSource.get(query) } returns Dummy.searchResultDomainModel
+            givenASuccessfulMapping()
 
-        val result = sut.search(query)
+            val result = sut.search(query)
 
-        assert(localDataSource.get(query).isEmpty())
-        coVerify { localDataSource.get(query) }
-        assert(result.isSuccess)
-
-    }
+            assert(result.isSuccess)
+            coVerify { localDataSource.get(query) }
+            assert(localDataSource.get(query).isNotEmpty())
+        }
 
     @Test
-    fun `given failure result from Api and Database must show a failure result`() = runTest {
-        coEvery { remoteDataSource.searchWith(query) } returns Result.failure(Exception())
-        coEvery { localDataSource.get(query) } returns listOf()
+    fun `given failure result from Database and success result from Api must show a success result`() =
+        runTest {
+            coEvery { remoteDataSource.searchWith(query) } returns Result.success(Dummy.searchResultDataModel)
+            coEvery { localDataSource.get(query) } returns listOf()
+            givenASuccessfulMapping()
 
-        val result = sut.search(query)
+            val result = sut.search(query)
 
-        assert(localDataSource.get(query).isEmpty())
-        coVerify { localDataSource.get(query) }
-        assert(result.isFailure)
-    }
+            assert(localDataSource.get(query).isEmpty())
+            coVerify { localDataSource.get(query) }
+            assert(result.isSuccess)
+        }
+
+    @Test
+    fun `given failure result from Api and Database must show a failure result`() =
+        runTest {
+            coEvery { remoteDataSource.searchWith(query) } returns Result.failure(Exception())
+            coEvery { localDataSource.get(query) } returns listOf()
+
+            val result = sut.search(query)
+
+            assert(localDataSource.get(query).isEmpty())
+            coVerify { localDataSource.get(query) }
+            assert(result.isFailure)
+        }
 }

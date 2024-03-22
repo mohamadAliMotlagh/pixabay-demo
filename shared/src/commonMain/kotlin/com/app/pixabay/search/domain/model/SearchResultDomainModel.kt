@@ -6,7 +6,7 @@ import kotlinx.serialization.Serializable
 data class SearchResultDomainModel(
     val largeImage: String,
     val thumbnail: String,
-    val id: String,
+    val id: Int,
     val tags: String,
     val downloadsCount: Int,
     val commentsCount: Int,

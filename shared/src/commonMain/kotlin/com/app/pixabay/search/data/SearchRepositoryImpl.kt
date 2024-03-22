@@ -30,7 +30,7 @@ class SearchRepositoryImpl(
         return remoteResult
     }
 
-    private fun loadFromLocal(query: String): Result<List<SearchResultDomainModel>> {
+    private suspend fun loadFromLocal(query: String): Result<List<SearchResultDomainModel>> {
         val result = local.get(query)
         return if (result.isEmpty()) {
             (Result.failure(Throwable("")))

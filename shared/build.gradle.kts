@@ -3,6 +3,7 @@ import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.sqlDelight)
     kotlin("plugin.serialization")
     id("org.jlleitschuh.gradle.ktlint")
 }
@@ -48,6 +49,9 @@ kotlin {
             implementation(libs.koin.common)
 
             implementation(libs.kotlin.coroutine)
+
+            implementation(libs.sqlDelight.runtime)
+            implementation(libs.sqlDelight.corutine)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -56,10 +60,13 @@ kotlin {
             implementation(libs.ktor.okhttp)
             // implementation(libs.koin.android)
             implementation(libs.kotlin.coroutine.android)
+
+            implementation(libs.sqlDelight.android)
         }
 
         iosMain.dependencies {
             implementation(libs.ktor.ios)
+            implementation(libs.sqlDelight.native)
         }
     }
 }
@@ -81,4 +88,10 @@ dependencies {
     testImplementation(libs.junit)
     testImplementation(libs.kotlin.coroutine.test)
     testImplementation("androidx.arch.core:core-testing:2.1.0")
+}
+
+sqldelight {
+    database("PixPayBackDatabase") {
+        packageName = "com.app.pixabay.database"
+    }
 }
