@@ -9,6 +9,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.app.pixabay.Greeting
+import com.app.pixabay.search.presenter.SearchViewModel
+import org.koin.androidx.compose.koinViewModel
+import org.koin.androidx.viewmodel.factory.KoinViewModelFactory
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,6 +31,9 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun GreetingView(text: String) {
+    val viewModel = koinViewModel<SearchViewModel>()
+
+
     Text(text = text)
 }
 

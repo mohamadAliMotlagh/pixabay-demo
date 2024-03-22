@@ -1,7 +1,7 @@
 
 CREATE TABLE search_queries (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  query TEXT NOT NULL,
+  query TEXT NOT NULL UNIQUE,
   timestamp INTEGER NOT NULL
 );
 
@@ -10,7 +10,7 @@ CREATE TABLE search_results (
   query_id INTEGER NOT NULL REFERENCES search_queries(id),
   large_image TEXT NOT NULL,
   thumbnail TEXT NOT NULL,
-  result_id TEXT NOT NULL,
+  result_id TEXT NOT NULL UNIQUE,
   tags TEXT NOT NULL,
   downloads_count INTEGER NOT NULL,
   comments_count INTEGER NOT NULL,

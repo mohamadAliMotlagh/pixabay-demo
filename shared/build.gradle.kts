@@ -58,8 +58,9 @@ kotlin {
         }
         androidMain.dependencies {
             implementation(libs.ktor.okhttp)
-            // implementation(libs.koin.android)
+            implementation(libs.koin.android)
             implementation(libs.kotlin.coroutine.android)
+            implementation(libs.androidx.lifecycle.viewmodel.ktx)
 
             implementation(libs.sqlDelight.android)
         }
