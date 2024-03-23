@@ -47,7 +47,6 @@ private val searchRemoteDataSource =
         single<SearchRemoteDataSource> { SearchRemoteDataSourceImpl(get()) }
     }
 
-expect val searchViewModel: Module
 
 internal fun searchModules(): List<Module> =
     listOf(
@@ -57,5 +56,4 @@ internal fun searchModules(): List<Module> =
         searchLocalDataSource,
         searchApi,
         searchRemoteDataSource,
-        searchViewModel,
     )

@@ -1,5 +1,7 @@
 [versions]
+accompanistNavigationAnimation = "0.33.2-alpha"
 agp = "8.3.1"
+coilCompose = "2.5.0"
 kotlin = "1.9.20"
 compose = "1.6.3"
 compose-compiler = "1.5.4"
@@ -20,8 +22,15 @@ mockk = "1.13.9"
 coroutine = "1.8.0"
 sqlDelight = "1.5.5"
 lifecycleViewmodelKtx = "2.7.0"
+lifecycleRuntimeCompose = "2.7.0"
+navigationCommonKtx = "2.7.7"
+animationAndroid = "1.6.4"
 
 [libraries]
+accompanist-navigation-animation = { module = "com.google.accompanist:accompanist-navigation-animation", version.ref = "accompanistNavigationAnimation" }
+accompanist-navigation-material = { module = "com.google.accompanist:accompanist-navigation-material", version.ref = "accompanistNavigationAnimation" }
+accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanistNavigationAnimation" }
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose" }
 gradle = { module = "com.android.tools.build:gradle", version.ref = "agp" }
 
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -75,6 +84,9 @@ sqlDelight-corutine = { module = "com.squareup.sqldelight:coroutines-extensions"
 sqlDelight-android = { module = "com.squareup.sqldelight:android-driver", version.ref = "sqlDelight" }
 sqlDelight-native = { module = "com.squareup.sqldelight:native-driver", version.ref = "sqlDelight" }
 androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
+androidx-lifecycle-runtime-compose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "lifecycleRuntimeCompose" }
+androidx-navigation-common-ktx = { group = "androidx.navigation", name = "navigation-common-ktx", version.ref = "navigationCommonKtx" }
+androidx-animation-android = { group = "androidx.compose.animation", name = "animation-android", version.ref = "animationAndroid" }
 
 
 [plugins]

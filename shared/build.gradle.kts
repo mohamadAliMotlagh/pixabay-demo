@@ -84,6 +84,8 @@ android {
     }
 }
 dependencies {
+    implementation(libs.androidx.navigation.common.ktx)
+    implementation(libs.androidx.animation.android)
     testImplementation(libs.kotlin.test)
     testImplementation(libs.mockk)
     testImplementation(libs.junit)

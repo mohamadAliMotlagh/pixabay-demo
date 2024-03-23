@@ -10,13 +10,20 @@ fun searchResultDataModelToDomainModel(dataModel: SearchResultDataModel): List<S
     return dataModel.hits?.map {
         SearchResultDomainModel(
             largeImage = it.largeImageURL ?: "",
-            thumbnail = it.previewURL ?: "",
+            thumbnail = it.webformatURL ?: "",
             id = it.id ?: 0,
             tags = it.tags ?: "",
             downloadsCount = it.downloads ?: 0,
             commentsCount = it.comments ?: 0,
             name = it.user ?: "",
             username = it.userId.toString(),
+            ratio =
+            try {
+                ((it.webformatWidth ?: 0).toFloat() /
+                        (it.webformatHeight ?: 0).toFloat())
+            } catch (e: Exception) {
+                (16f / 9f)
+            },
         )
     } ?: listOf()
 }

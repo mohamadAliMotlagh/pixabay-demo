@@ -31,6 +31,7 @@ class SearchLocalDataSourceImpl(
                     it.commentsCount.toLong(),
                     it.name,
                     it.username,
+                    it.ratio.toDouble(),
                 )
             }
         }
@@ -48,6 +49,7 @@ class SearchLocalDataSourceImpl(
                     it.comments_count.toInt(),
                     it.name,
                     it.username,
+                    it.ratio.toFloat(),
                 )
             }
         }

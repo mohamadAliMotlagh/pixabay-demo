@@ -15,7 +15,8 @@ CREATE TABLE search_results (
   downloads_count INTEGER NOT NULL,
   comments_count INTEGER NOT NULL,
   name TEXT NOT NULL,
-  username TEXT NOT NULL
+  username TEXT NOT NULL,
+  ratio REAL NOT NULL
 );
 
 insertQueries:
@@ -27,8 +28,8 @@ SELECT * FROM search_queries
 WHERE query = ?;
 
 insertSearchResults:
-INSERT OR REPLACE INTO search_results (query_id, large_image, thumbnail, result_id, tags, downloads_count, comments_count, name, username)
-VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
+INSERT OR REPLACE INTO search_results (query_id, large_image, thumbnail, result_id, tags, downloads_count, comments_count, name, username,ratio)
+VALUES(?,?,?,?,?,?,?,?,?,?);
 
 localSearch:
 SELECT * FROM search_results
