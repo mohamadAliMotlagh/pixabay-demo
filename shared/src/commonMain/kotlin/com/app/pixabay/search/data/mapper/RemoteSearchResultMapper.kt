@@ -11,10 +11,11 @@ fun searchResultDataModelToDomainModel(dataModel: SearchResultDataModel): List<S
         SearchResultDomainModel(
             largeImage = it.largeImageURL ?: "",
             thumbnail = it.webformatURL ?: "",
-            id = it.id ?: 0,
+            id = it.id.toString(),
             tags = it.tags ?: "",
             downloadsCount = it.downloads ?: 0,
             commentsCount = it.comments ?: 0,
+            likesCount = it.likes ?: 0,
             name = it.user ?: "",
             username = it.userId.toString(),
             ratio =

@@ -42,11 +42,11 @@ class MainActivity : ComponentActivity() {
                         navController = navController,
                         startDestination = SearchDestination.route()
                     ) {
-                        composable(route = SearchDestination.route()) {
+                        composable(route = SearchDestination.route(),SearchDetailDestination.arguments) {
                             SearchScreen()
                         }
 
-                        composable(route = SearchDetailDestination.route()) {
+                        composable(route = SearchDetailDestination.route(), arguments = SearchDetailDestination.arguments) {
                             SearchDetailScreen()
                         }
                     }
@@ -95,34 +95,14 @@ fun SearchScreen() {
     val viewModel = koinViewModel<SearchViewModel>()
     val text = viewModel.searchQuery.collectAsStateWithLifecycle()
     val list = viewModel.resultFlow.collectAsStateWithLifecycle()
-    val showConfirmDialog = remember {
-        mutableStateOf(false)
-    }
     SearchUI(
         searchQuery = { text.value },
         onQueryChange = viewModel::onSearchQueried,
         list = { list.value },
         {
-            viewModel.onItemClicked(it)
-            showConfirmDialog.value = true
+            viewModel.navigateToSearchDetail(it)
         }
     )
-
-    if (showConfirmDialog.value) {
-        DialogScreen(
-            title = "Confirmation",
-            description = "Are you sure you want to see the details?",
-            positiveButtonText = "YES",
-            negativeButtonText = "CANCEL",
-            onPositiveButtonClick = {
-                showConfirmDialog.value = false
-                viewModel.navigateToSearchDetail()
-            },
-            onNegativeButtonClick = {
-                showConfirmDialog.value = false
-            }
-        )
-    }
 }
 
 @Preview

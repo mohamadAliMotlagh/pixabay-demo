@@ -9,4 +9,6 @@ interface SearchLocalDataSource {
     )
 
     suspend fun get(query: String): List<SearchResultDomainModel>
+
+    suspend fun findSearchResultById(id: String): SearchResultDomainModel
 }

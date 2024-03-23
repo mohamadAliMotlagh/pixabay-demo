@@ -30,6 +30,10 @@ class SearchRepositoryImpl(
         return remoteResult
     }
 
+    override suspend fun findSearchResultById(id: String): SearchResultDomainModel {
+        return local.findSearchResultById(id)
+    }
+
     private suspend fun loadFromLocal(query: String): Result<List<SearchResultDomainModel>> {
         val result = local.get(query)
         return if (result.isEmpty()) {

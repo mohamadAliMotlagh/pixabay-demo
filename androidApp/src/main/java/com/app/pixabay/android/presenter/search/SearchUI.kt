@@ -6,8 +6,11 @@ import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import com.app.pixabay.android.presenter.dialog.DialogScreen
 import com.app.pixabay.android.presenter.search.SearchHeader
 import com.app.pixabay.android.presenter.search.SearchResultScreen
 import com.app.pixabay.search.domain.model.SearchResultDomainModel
@@ -18,9 +21,11 @@ fun SearchUI(
     searchQuery: () -> String,
     onQueryChange: (String) -> Unit,
     list: () -> List<SearchResultDomainModel>,
-    onItemClick: (SearchResultDomainModel) -> Unit
+    onItemClick: (String) -> Unit
 ) {
-
+    val showConfirmDialog = remember {
+        mutableStateOf<String?>(null)
+    }
     Scaffold { paddingValues ->
         SearchHeader(
             searchQuery = searchQuery,
@@ -28,8 +33,26 @@ fun SearchUI(
             onQueryChange
         ) {
             SearchResultScreen(
-                list,
-                onItemClick
+                list
+            ) {
+                showConfirmDialog.value = it.id
+            }
+        }
+
+        showConfirmDialog.value?.let {
+            DialogScreen(
+                title = "Confirmation",
+                description = "Are you sure you want to see the details?",
+                positiveButtonText = "YES",
+                negativeButtonText = "CANCEL",
+                onPositiveButtonClick = {
+                    onItemClick(it)
+                    showConfirmDialog.value = null
+
+                },
+                onNegativeButtonClick = {
+                    showConfirmDialog.value = null
+                }
             )
         }
     }

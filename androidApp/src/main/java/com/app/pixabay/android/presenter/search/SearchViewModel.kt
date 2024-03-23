@@ -22,7 +22,6 @@ class SearchViewModel(
     private val _resultFlow = MutableStateFlow(listOf<SearchResultDomainModel>())
     val resultFlow = _resultFlow.asStateFlow()
 
-    lateinit var selectedItem: SearchResultDomainModel
 
     init {
         onSearchQueried("fruits")
@@ -43,11 +42,8 @@ class SearchViewModel(
         }
     }
 
-    fun onItemClicked(item: SearchResultDomainModel) {
-        selectedItem = item
-    }
 
-    fun navigateToSearchDetail() {
-        navigator.navigate(SearchDetailDestination.route())
+    fun navigateToSearchDetail(id: String) {
+        navigator.navigate(SearchDetailDestination.createDetailPath(id))
     }
 }

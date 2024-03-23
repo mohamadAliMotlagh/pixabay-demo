@@ -7,10 +7,11 @@ import kotlinx.serialization.Serializable
 data class SearchResultDomainModel(
     val largeImage: String,
     val thumbnail: String,
-    val id: Int,
+    val id: String,
     val tags: String,
     val downloadsCount: Int,
     val commentsCount: Int,
+    val likesCount:Int,
     val name: String,
     val username: String,
     val ratio: Float,

@@ -50,6 +50,8 @@ dependencies {
     implementation(libs.koin.compose)
 
     implementation(libs.coil.compose)
+    implementation(libs.compose.icon)
+
 
 
     implementation(libs.accompanist.navigation.animation)

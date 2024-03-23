@@ -25,10 +25,11 @@ class SearchLocalDataSourceImpl(
                     queryID,
                     it.largeImage,
                     it.thumbnail,
-                    it.id.toString(),
+                    it.id,
                     it.tags,
                     it.downloadsCount.toLong(),
                     it.commentsCount.toLong(),
+                    it.likesCount.toLong(),
                     it.name,
                     it.username,
                     it.ratio.toDouble(),
@@ -43,14 +44,34 @@ class SearchLocalDataSourceImpl(
                 SearchResultDomainModel(
                     it.large_image,
                     it.thumbnail,
-                    it.id.toInt(),
+                    it.result_id,
                     it.tags,
                     it.downloads_count.toInt(),
                     it.comments_count.toInt(),
+                    it.likes_count.toInt(),
                     it.name,
                     it.username,
                     it.ratio.toFloat(),
                 )
             }
         }
+
+    override suspend fun findSearchResultById(id: String): SearchResultDomainModel =
+        withContext(ioDispatcher) {
+            val result = queries.findItemByResultId(id).executeAsOne()
+            SearchResultDomainModel(
+                result.large_image,
+                result.thumbnail,
+                result.result_id,
+                result.tags,
+                result.downloads_count.toInt(),
+                result.comments_count.toInt(),
+                result.likes_count.toInt(),
+                result.name,
+                result.username,
+                result.ratio.toFloat(),
+            )
+        }
+
+
 }

@@ -13,6 +13,7 @@ CREATE TABLE search_results (
   result_id TEXT NOT NULL UNIQUE,
   tags TEXT NOT NULL,
   downloads_count INTEGER NOT NULL,
+  likes_count INTEGER NOT NULL,
   comments_count INTEGER NOT NULL,
   name TEXT NOT NULL,
   username TEXT NOT NULL,
@@ -28,10 +29,14 @@ SELECT * FROM search_queries
 WHERE query = ?;
 
 insertSearchResults:
-INSERT OR REPLACE INTO search_results (query_id, large_image, thumbnail, result_id, tags, downloads_count, comments_count, name, username,ratio)
-VALUES(?,?,?,?,?,?,?,?,?,?);
+INSERT OR REPLACE INTO search_results (query_id, large_image, thumbnail, result_id, tags, downloads_count, likes_count,comments_count, name, username,ratio)
+VALUES(?,?,?,?,?,?,?,?,?,?,?);
 
 localSearch:
 SELECT * FROM search_results
 INNER JOIN search_queries ON search_results.query_id = search_queries.id
 WHERE search_queries.query = ?;
+
+findItemByResultId:
+SELECT * FROM search_results
+WHERE result_id = ?;

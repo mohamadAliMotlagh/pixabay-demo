@@ -30,10 +30,11 @@ class MainApplication : Application(), ImageLoaderFactory {
                     .strongReferencesEnabled(true)
                     .build()
             }
+            .respectCacheHeaders(false)
             .diskCachePolicy(CachePolicy.ENABLED)
             .diskCache {
                 DiskCache.Builder()
-                    .maxSizePercent(0.03)
+                    .maxSizePercent(0.1)
                     .directory(cacheDir)
                     .build()
             }
