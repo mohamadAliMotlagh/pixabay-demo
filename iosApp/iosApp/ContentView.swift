@@ -1,29 +1,48 @@
 import SwiftUI
 import shared
-
+import SDWebImageSwiftUI
 import SwiftUI
 
 struct ContentView: View {
     @StateObject var viewModel = SearchViewModel()
-    @State private var query = "fruit"
+
+    
+    private let columns: [GridItem] = Array(repeating: GridItem(.flexible()), count: 2)
+
 
     var body: some View {
         NavigationView {
-            List(viewModel.searchResults, id: \.id) { item in
-                VStack{
-                    AsyncImage(url: URL(string: item.thumbnail))
-                    Text(item.name)
-                }
-                
+            ScrollView {
+                LazyVGrid(columns: self.columns, spacing: 0) {
+                    ForEach(viewModel.searchResults, id: \.id) {model in
+                            CustomImageView(imageModel: model)
+                        }
+                    }
+                } .navigationTitle("Pixabay Photos")
+                .navigationBarItems(trailing: Button("Search") {
+                    viewModel.search(query: "test")
+                })
             }
-            .navigationBarTitle("Search")
-            .navigationBarItems(trailing: Button("Search") {
-                viewModel.search(query: query)
-            })
-            .searchable(text: $query)
+            .searchable(text: $viewModel.value)
+            
         }
     }
     
+
+struct CustomImageView: View {
+    let imageModel: SearchResultDomainModel
+    var body: some View {
+        VStack {
+                       WebImage(url: URL(string: imageModel.thumbnail))
+                           .resizable()
+                           .aspectRatio(CGFloat(imageModel.ratio), contentMode: .fit)
+                           
+                           .border(Color.black)
+                           .clipped()
+                       Text("")
+                   }
+            /// TODO Placeholder
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
