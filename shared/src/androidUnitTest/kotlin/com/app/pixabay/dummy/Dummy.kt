@@ -46,6 +46,6 @@ object Dummy {
     val searchResultDomainModel =
         (0..1).map {
             val text = it.toString()
-            SearchResultDomainModel(text, text, it, text, it, it, text, text)
+            SearchResultDomainModel(text, text, it.toString(), text, it, it, it, text, text, 0.5f)
         }
 }

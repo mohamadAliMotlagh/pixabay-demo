@@ -22,7 +22,6 @@ class SearchViewModel(
     private val _resultFlow = MutableStateFlow(listOf<SearchResultDomainModel>())
     val resultFlow = _resultFlow.asStateFlow()
 
-
     init {
         onSearchQueried("fruits")
         makeRequest()
@@ -41,7 +40,6 @@ class SearchViewModel(
             }
         }
     }
-
 
     fun navigateToSearchDetail(id: String) {
         navigator.navigate(SearchDetailDestination.createDetailPath(id))

@@ -1,5 +1,6 @@
 package com.app.pixabay.search.di
 
+import android.content.Context
 import com.app.pixabay.core.navigator.Navigator
 import com.app.pixabay.core.navigator.NavigatorImpl
 import com.app.pixabay.database.PixPayBackDatabase

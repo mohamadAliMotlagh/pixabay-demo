@@ -10,6 +10,7 @@ import com.app.pixabay.search.data.network.SearchApi
 import com.app.pixabay.search.data.remote.SearchRemoteDataSource
 import com.app.pixabay.search.data.remote.SearchRemoteDataSourceImpl
 import com.app.pixabay.search.domain.SearchRepository
+import com.squareup.sqldelight.db.SqlDriver
 import org.koin.core.module.Module
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
