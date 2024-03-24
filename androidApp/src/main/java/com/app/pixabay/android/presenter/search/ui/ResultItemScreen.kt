@@ -1,4 +1,4 @@
-package com.app.pixabay.android.presenter.search
+package com.app.pixabay.android.presenter.search.ui
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -104,9 +104,5 @@ fun SearchResultItemScreen(
                 modifier = Modifier.padding(8.dp).align(Alignment.TopStart)
             )
         }
-
-
-
-
     }
 }

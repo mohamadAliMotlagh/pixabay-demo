@@ -1,4 +1,4 @@
-package com.app.pixabay.android.presenter.search
+package com.app.pixabay.android.presenter.search.ui
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.animateDpAsState

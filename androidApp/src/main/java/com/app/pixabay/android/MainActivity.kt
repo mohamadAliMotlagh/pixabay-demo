@@ -8,8 +8,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -19,9 +17,8 @@ import androidx.navigation.compose.rememberNavController
 import com.app.pixabay.android.presenter.search.SearchViewModel
 import com.app.pixabay.android.presenter.detail.SearchDetailDestination
 import com.app.pixabay.android.presenter.detail.SearchDetailScreen
-import com.app.pixabay.android.presenter.dialog.DialogScreen
 import com.app.pixabay.android.presenter.search.SearchDestination
-import com.app.pixabay.android.presenter.search.SearchUI
+import com.app.pixabay.android.presenter.search.ui.SearchUI
 import com.app.pixabay.core.navigator.Navigator
 import com.app.pixabay.core.navigator.NavigatorEvent
 import org.koin.android.ext.android.inject

@@ -1,4 +1,4 @@
-package com.app.pixabay.android.presenter.search
+package com.app.pixabay.android.presenter.search.ui
 
 import android.content.res.Configuration.ORIENTATION_LANDSCAPE
 import androidx.compose.foundation.layout.Arrangement
@@ -12,7 +12,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.unit.dp
-import com.app.pixabay.android.presenter.search.SearchResultItemScreen
 import com.app.pixabay.search.domain.model.SearchResultDomainModel
 
 

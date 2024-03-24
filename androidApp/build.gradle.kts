@@ -12,6 +12,8 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
     }
     buildFeatures {
         compose = true
@@ -52,8 +54,10 @@ dependencies {
     implementation(libs.coil.compose)
     implementation(libs.compose.icon)
 
-
-
     implementation(libs.accompanist.navigation.animation)
     implementation(libs.accompanist.navigation.material)
+
+    androidTestImplementation(libs.androidx.ui.test.junit4)
+// Needed for createAndroidComposeRule, but not createComposeRule:
+    debugImplementation(libs.androidx.ui.test.manifest)
 }

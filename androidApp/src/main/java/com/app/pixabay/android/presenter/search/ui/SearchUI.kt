@@ -1,4 +1,4 @@
-package com.app.pixabay.android.presenter.search
+package com.app.pixabay.android.presenter.search.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -11,8 +11,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.app.pixabay.android.presenter.dialog.DialogScreen
-import com.app.pixabay.android.presenter.search.SearchHeader
-import com.app.pixabay.android.presenter.search.SearchResultScreen
 import com.app.pixabay.search.domain.model.SearchResultDomainModel
 
 @OptIn(ExperimentalMaterial3Api::class)

@@ -16,14 +16,14 @@ class SearchViewModel(
     private val repository: SearchRepository,
     private val navigator: Navigator
 ) : ViewModel() {
-    private val _searchQuery = MutableStateFlow("")
+    private val _searchQuery = MutableStateFlow("fruits")
     val searchQuery = _searchQuery.asStateFlow()
 
     private val _resultFlow = MutableStateFlow(listOf<SearchResultDomainModel>())
     val resultFlow = _resultFlow.asStateFlow()
 
     init {
-        onSearchQueried("fruits")
+        onSearchQueried(_searchQuery.value)
         makeRequest()
     }
 

@@ -12,6 +12,13 @@ class SearchRepositoryImpl(
     private val local: SearchLocalDataSource,
     private val remoteSearchResultMapper: RemoteSearchResultMapper,
 ) : SearchRepository {
+    /**
+     * Performs a search operation for the given query.
+     * The search is first attempted locally, and if not found,
+     * it's then attempted remotely.
+     * @param query The search query.
+     * @return A Result object containing a list of search results.
+     */
     override suspend fun search(query: String): Result<List<SearchResultDomainModel>> {
         if (query.isEmpty()) {
             return Result.success(listOf())
@@ -22,12 +29,7 @@ class SearchRepositoryImpl(
             return localResult
         }
 
-        val remoteResult = loadFromRemote(query)
-        if (remoteResult.isSuccess) {
-            return remoteResult
-        }
-
-        return remoteResult
+        return loadFromRemote(query)
     }
 
     override suspend fun findSearchResultById(id: String): SearchResultDomainModel {
@@ -47,12 +49,14 @@ class SearchRepositoryImpl(
         val result = remote.searchWith(query)
         return if (result.isSuccess) {
             val mappedResult = result.map { remoteSearchResultMapper(it) }
+
             mappedResult.getOrNull()?.let {
                 local.save(query, it)
             }
+
             mappedResult
         } else {
-            (Result.failure(result.exceptionOrNull()!!))
+            Result.failure(result.exceptionOrNull() ?: Exception("Unknown error"))
         }
     }
 }
