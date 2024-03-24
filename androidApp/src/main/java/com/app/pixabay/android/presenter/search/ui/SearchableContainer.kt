@@ -38,9 +38,10 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.app.pixabay.android.components.WrappedColumn
 
 @Composable
-fun SearchHeader(
+internal fun SearchableContainer(
     searchQuery: () -> String,
     paddingValues: () -> PaddingValues,
     onQueryChange: (String) -> Unit,
@@ -54,7 +55,7 @@ fun SearchHeader(
     val searchFieldFocusRequester = remember { FocusRequester() }
     val searchFieldInteractionSource = remember { MutableInteractionSource() }
     val searchFieldFocusManager = LocalFocusManager.current
-    NonInlineColumn(
+    WrappedColumn(
         Modifier
             .fillMaxSize()
             .clickable(
@@ -69,7 +70,7 @@ fun SearchHeader(
 
 
         AnimatedVisibility(visible = !isSearchBarExpanded) {
-            NonInlineColumn(Modifier.fillMaxWidth()) {
+            WrappedColumn(Modifier.fillMaxWidth()) {
                 Spacer(
                     modifier = Modifier
                         .height(32.dp)
@@ -98,8 +99,6 @@ fun SearchHeader(
                 .onFocusChanged {
                     if (it.hasFocus) {
                         isSearchBarExpanded = true
-                    } else {
-
                     }
                 }
                 .padding(horizontal = paddingAnimate.value),

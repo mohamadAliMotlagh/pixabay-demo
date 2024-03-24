@@ -16,7 +16,7 @@ import com.app.pixabay.search.domain.model.SearchResultDomainModel
 
 
 @Composable
-fun SearchResultScreen(
+fun SearchResult(
     list: () -> List<SearchResultDomainModel>,
     onItemClicked: (SearchResultDomainModel) -> Unit
 ) {
@@ -27,15 +27,15 @@ fun SearchResultScreen(
 
     LazyVerticalStaggeredGrid(modifier = Modifier
         .fillMaxSize()
-        .padding(horizontal = 16.dp)
+        .padding(horizontal = 8.dp)
         .padding(top = 16.dp),
         columns = cellConfiguration,
-        contentPadding = PaddingValues(16.dp),
+        contentPadding = PaddingValues(8.dp),
         verticalItemSpacing = 16.dp,
         horizontalArrangement = Arrangement.spacedBy(16.dp),
         content = {
             items(list.invoke(), key = { it.id }) {
-                SearchResultItemScreen(it,onItemClicked)
+                SearchResultItem(it,onItemClicked)
             }
         })
 }

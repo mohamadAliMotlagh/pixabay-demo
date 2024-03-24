@@ -1,4 +1,4 @@
-package com.app.pixabay.android.presenter.detail
+package com.app.pixabay.android.components
 
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons

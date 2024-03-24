@@ -3,7 +3,6 @@ package com.app.pixabay.android.presenter.search.ui
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -13,7 +12,6 @@ import androidx.compose.ui.Modifier
 import com.app.pixabay.android.presenter.dialog.DialogScreen
 import com.app.pixabay.search.domain.model.SearchResultDomainModel
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SearchUI(
     searchQuery: () -> String,
@@ -25,12 +23,12 @@ fun SearchUI(
         mutableStateOf<String?>(null)
     }
     Scaffold { paddingValues ->
-        SearchHeader(
+        SearchableContainer(
             searchQuery = searchQuery,
             paddingValues = { paddingValues },
             onQueryChange
         ) {
-            SearchResultScreen(
+            SearchResult(
                 list
             ) {
                 showConfirmDialog.value = it.id
@@ -46,7 +44,6 @@ fun SearchUI(
                 onPositiveButtonClick = {
                     onItemClick(it)
                     showConfirmDialog.value = null
-
                 },
                 onNegativeButtonClick = {
                     showConfirmDialog.value = null
@@ -54,17 +51,4 @@ fun SearchUI(
             )
         }
     }
-}
-
-@Composable
-fun NonInlineColumn(
-    modifier: Modifier = Modifier,
-    verticalArrangement: Arrangement.Vertical = Arrangement.Top,
-    horizontalAlignment: Alignment.Horizontal = Alignment.Start,
-    content: @Composable ColumnScope.() -> Unit
-) {
-    Column(
-        modifier = modifier,
-        verticalArrangement, horizontalAlignment = horizontalAlignment, content
-    )
 }

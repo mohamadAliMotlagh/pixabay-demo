@@ -1,4 +1,4 @@
-package com.app.pixabay.android
+package com.app.pixabay.android.components
 
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable

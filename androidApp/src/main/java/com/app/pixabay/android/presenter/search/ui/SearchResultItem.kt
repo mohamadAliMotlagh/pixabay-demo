@@ -2,14 +2,10 @@ package com.app.pixabay.android.presenter.search.ui
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.IntrinsicSize
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -26,14 +22,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil.compose.AsyncImage
 import coil.compose.SubcomposeAsyncImage
 import coil.request.ImageRequest
-import com.app.pixabay.android.shimmerEffect
+import com.app.pixabay.android.components.shimmerEffect
 import com.app.pixabay.search.domain.model.SearchResultDomainModel
 
 @Composable
-fun SearchResultItemScreen(
+internal fun SearchResultItem(
     item: SearchResultDomainModel,
     onItemClicked: (SearchResultDomainModel) -> Unit
 ) {
