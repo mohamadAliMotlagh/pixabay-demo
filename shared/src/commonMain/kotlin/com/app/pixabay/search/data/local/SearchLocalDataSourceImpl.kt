@@ -72,6 +72,4 @@ class SearchLocalDataSourceImpl(
                 result.ratio.toFloat(),
             )
         }
-
-
 }

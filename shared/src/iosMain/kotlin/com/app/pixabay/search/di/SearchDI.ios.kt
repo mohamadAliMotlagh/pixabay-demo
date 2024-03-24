@@ -3,7 +3,6 @@ package com.app.pixabay.search.di
 import com.app.pixabay.core.di.dispatchersModule
 import com.app.pixabay.core.network.ktorProvider
 import com.app.pixabay.database.PixPayBackDatabase
-import com.app.pixabay.search.data.SearchRepositoryImpl
 import com.app.pixabay.search.domain.SearchRepository
 import com.app.pixabay.search.domain.model.SearchResultDomainModel
 import com.squareup.sqldelight.db.SqlDriver
@@ -24,10 +23,6 @@ actual val sqlDriverModule: Module =
         }
     }
 
-
-val helper = module {
-    single { InjectHelper() }
-}
 fun initKoin() {
     startKoin {
         modules(
@@ -38,16 +33,16 @@ fun initKoin() {
     }
 }
 
-
-
-class InjectHelper:KoinComponent  {
+class InjectHelper : KoinComponent {
     private val searchRepository: SearchRepository by inject()
     private val scope = CoroutineScope(Dispatchers.Main)
-    fun search(query: String, success: (List<SearchResultDomainModel>) -> Unit) {
+
+    fun search(
+        query: String,
+        success: (List<SearchResultDomainModel>) -> Unit,
+    ) {
         scope.launch {
             success(searchRepository.search(query).getOrDefault(listOf()))
         }
     }
 }
-
-

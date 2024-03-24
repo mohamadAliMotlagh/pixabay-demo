@@ -8,14 +8,24 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import coil.compose.SubcomposeAsyncImage
 import coil.request.ImageRequest
@@ -57,11 +67,46 @@ fun SearchResultItemScreen(
             modifier = Modifier
                 .fillMaxWidth()
         )
-//        Text(
-//            modifier = Modifier,
-//            overflow = TextOverflow.Ellipsis,
-//            text = item.tags,
-//            color = MaterialTheme.colorScheme.secondaryContainer,
-//        )
+
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .aspectRatio(item.ratio, true)
+                .drawBehind {
+                    val gradientColors = listOf(Color.Black.copy(alpha = 0.7f),Color.Transparent,Color.Transparent, Color.Black.copy(alpha = 0.99f))
+                    val gradient = Brush.verticalGradient(
+                        startY = 0f,
+                        endY = size.height,
+                        colors = gradientColors
+                    )
+                    drawRect(brush = gradient)
+                }
+        ) {
+            Text(
+                text = item.tags,
+                style = TextStyle(
+                    color = Color.White,
+                    fontSize = 12.sp,
+                    fontWeight = FontWeight.Light,
+                    textAlign = TextAlign.Left
+                ),
+                modifier = Modifier.padding(8.dp).align(Alignment.BottomStart)
+            )
+
+            Text(
+                text = item.name,
+                style = TextStyle(
+                    color = Color.White,
+                    fontSize = 12.sp,
+                    fontWeight = FontWeight.Light,
+                    textAlign = TextAlign.Left
+                ),
+                modifier = Modifier.padding(8.dp).align(Alignment.TopStart)
+            )
+        }
+
+
+
+
     }
 }

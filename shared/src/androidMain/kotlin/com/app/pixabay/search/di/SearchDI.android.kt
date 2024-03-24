@@ -1,6 +1,5 @@
 package com.app.pixabay.search.di
 
-import android.content.Context
 import com.app.pixabay.core.navigator.Navigator
 import com.app.pixabay.core.navigator.NavigatorImpl
 import com.app.pixabay.database.PixPayBackDatabase
@@ -19,8 +18,7 @@ actual val sqlDriverModule: Module =
             )
         }
     }
-val navigator = module {
-    single<Navigator> { NavigatorImpl() }
-}
-
-
+val navigator =
+    module {
+        single<Navigator> { NavigatorImpl() }
+    }

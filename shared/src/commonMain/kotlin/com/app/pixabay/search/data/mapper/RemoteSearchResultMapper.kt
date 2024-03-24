@@ -19,12 +19,14 @@ fun searchResultDataModelToDomainModel(dataModel: SearchResultDataModel): List<S
             name = it.user ?: "",
             username = it.userId.toString(),
             ratio =
-            try {
-                ((it.webformatWidth ?: 0).toFloat() /
-                        (it.webformatHeight ?: 0).toFloat())
-            } catch (e: Exception) {
-                (16f / 9f)
-            },
+                try {
+                    (
+                        (it.webformatWidth ?: 0).toFloat() /
+                            (it.webformatHeight ?: 0).toFloat()
+                    )
+                } catch (e: Exception) {
+                    (16f / 9f)
+                },
         )
     } ?: listOf()
 }
