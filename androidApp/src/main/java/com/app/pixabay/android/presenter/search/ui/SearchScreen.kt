@@ -14,7 +14,7 @@ fun SearchScreen() {
     SearchUI(
         searchQuery = { searchQuery.value },
         onQueryChange = viewModel::onSearchQueried,
-        list = { result.value },
+        resultState = { result.value },
         onItemClick = viewModel::navigateToSearchDetail
     )
 }

@@ -37,9 +37,9 @@ class KtorApiImpl : KtorApi {
             }
 
             install(HttpTimeout) {
-                requestTimeoutMillis = 120_000
-                connectTimeoutMillis = 120_000
-                socketTimeoutMillis = 120_000
+                requestTimeoutMillis = 30_000
+                connectTimeoutMillis = 30_000
+                socketTimeoutMillis = 30_000
             }
         }
 

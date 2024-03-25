@@ -41,7 +41,7 @@ struct CustomImageView: View {
                            .clipped()
                        Text("")
                    }
-            /// TODO Placeholder
+/// TODO Placeholder
     }
 }
 
