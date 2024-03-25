@@ -9,5 +9,4 @@
     <string name="no_internet">Your internet connection appears to be offline.</string>
     <string name="unknown_error">An unknown error has occurred.</string>
     <string name="initial_query">fruits</string>
-    <string name="app_name">pixaby</string>
 </resources>
