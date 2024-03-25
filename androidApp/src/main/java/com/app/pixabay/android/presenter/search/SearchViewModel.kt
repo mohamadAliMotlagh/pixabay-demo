@@ -2,7 +2,9 @@ package com.app.pixabay.android.presenter.search
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.app.pixabay.android.R
 import com.app.pixabay.android.presenter.detail.SearchDetailDestination
+import com.app.pixabay.android.stringprovider.StringProvider
 import com.app.pixabay.core.navigator.Navigator
 import com.app.pixabay.search.domain.SearchError
 import com.app.pixabay.search.domain.SearchRepository
@@ -16,13 +18,12 @@ import kotlinx.coroutines.launch
 
 class SearchViewModel(
     private val repository: SearchRepository,
-    private val navigator: Navigator
+    private val navigator: Navigator,
+    private val stringProvider: StringProvider
 ) : ViewModel() {
-     companion object{
-         const val INITIAL_QUERY = "fruits"
-     }
 
-    private val _searchQueryFlow = MutableStateFlow(INITIAL_QUERY)
+    private val _searchQueryFlow =
+        MutableStateFlow(stringProvider.getString(R.string.initial_query))
     val searchQueryFlow = _searchQueryFlow.asStateFlow()
 
     private val _resultFlow = MutableStateFlow<SearchResultState>(SearchResultState.Loading)
@@ -49,19 +50,19 @@ class SearchViewModel(
 
                         _resultFlow.value = when (it) {
                             is SearchError.General -> {
-                                SearchResultState.Error("There is an error related to the server.")
+                                SearchResultState.Error(stringProvider.getString(R.string.general_server_error))
                             }
 
                             is SearchError.EmptyResult -> {
-                                SearchResultState.Error("Theres are not any results.")
+                                SearchResultState.Error(stringProvider.getString(R.string.empty_result))
                             }
 
                             is SearchError.Network -> {
-                                SearchResultState.Error("Your internet connection has issue.")
+                                SearchResultState.Error(stringProvider.getString(R.string.no_internet))
                             }
 
                             else -> {
-                                SearchResultState.Error("unknown error.")
+                                SearchResultState.Error(stringProvider.getString(R.string.unknown_error))
                             }
                         }
 
