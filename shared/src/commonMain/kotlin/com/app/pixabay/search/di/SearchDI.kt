@@ -9,7 +9,12 @@ import com.app.pixabay.search.data.mapper.searchResultDataModelToDomainModel
 import com.app.pixabay.search.data.network.SearchApi
 import com.app.pixabay.search.data.remote.SearchRemoteDataSource
 import com.app.pixabay.search.data.remote.SearchRemoteDataSourceImpl
+import com.app.pixabay.search.domain.FindResultByIdUseCase
 import com.app.pixabay.search.domain.SearchRepository
+import com.app.pixabay.search.domain.SearchUseCase
+import com.app.pixabay.search.domain.findResultById
+import com.app.pixabay.search.domain.model.SearchResultDomainModel
+import com.app.pixabay.search.domain.searchUseCase
 import org.koin.core.module.Module
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
@@ -47,6 +52,18 @@ private val searchRemoteDataSource =
         single<SearchRemoteDataSource> { SearchRemoteDataSourceImpl(get()) }
     }
 
+private fun searchUseCaseModule() = module {
+    single<SearchUseCase> {
+        SearchUseCase { searchUseCase(get(), it) }
+    }
+}
+
+private fun findResultByIdUseCaseModule() = module {
+    single<FindResultByIdUseCase> {
+        FindResultByIdUseCase { findResultById(get(), it) }
+    }
+}
+
 internal fun searchModules(): List<Module> =
     listOf(
         sqlDriverModule,
@@ -55,4 +72,6 @@ internal fun searchModules(): List<Module> =
         searchLocalDataSource,
         searchApi,
         searchRemoteDataSource,
+        searchUseCaseModule(),
+        findResultByIdUseCaseModule()
     )

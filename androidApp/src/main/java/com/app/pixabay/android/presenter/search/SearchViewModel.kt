@@ -8,6 +8,7 @@ import com.app.pixabay.android.stringprovider.StringProvider
 import com.app.pixabay.core.navigator.Navigator
 import com.app.pixabay.search.domain.SearchError
 import com.app.pixabay.search.domain.SearchRepository
+import com.app.pixabay.search.domain.SearchUseCase
 import com.app.pixabay.search.domain.model.SearchResultDomainModel
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -17,7 +18,7 @@ import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.launch
 
 class SearchViewModel(
-    private val repository: SearchRepository,
+    private val searchUseCase: SearchUseCase,
     private val navigator: Navigator,
     private val stringProvider: StringProvider
 ) : ViewModel() {
@@ -43,7 +44,7 @@ class SearchViewModel(
         viewModelScope.launch {
             _searchQueryFlow.debounce(500).collectLatest {
                 _resultFlow.value = SearchResultState.Loading
-                repository.search(it)
+                searchUseCase(it)
                     .onSuccess {
                         _resultFlow.value = SearchResultState.Success(it)
                     }.onFailure {
