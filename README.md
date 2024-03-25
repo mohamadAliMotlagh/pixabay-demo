@@ -20,6 +20,17 @@ The project is developed using Kotlin Multiplatform Mobile and incorporates esse
 - **UI Optimization:** Employing the Layout Inspector, the app meticulously fine-tunes its user interface to minimize unnecessary recomposition.
 - **Keyboard Management:** The app intelligently prevents keyboard overlays, ensuring that on-screen content remains fully visible and accessible during user interactions.
 
+### Project Structure: 
+the data and domain layer are shared and placed in shared module.[see the code](https://github.com/mohamadAliMotlagh/pixabay-demo/tree/main/shared/src/commonMain)
+
+<img width="340" alt="Screenshot 2024-03-25 at 16 01 46" src="https://github.com/mohamadAliMotlagh/pixabay-demo/assets/4753472/c2d73b15-d75c-4752-9422-e74b7938c339">
+
+
+the presentation layer is on androidApp module.
+[see the code](https://github.com/mohamadAliMotlagh/pixabay-demo/tree/main/androidApp/src/main/java/com/app/pixabay/android)
+
+
+<img width="337" alt="Screenshot 2024-03-25 at 16 04 20" src="https://github.com/mohamadAliMotlagh/pixabay-demo/assets/4753472/6451bc75-4fba-4aef-a55f-4a9ae0b8806b">
 
 ### Android APP: 
 ![Screenshot_1711341698](https://github.com/mohamadAliMotlagh/pixabay-demo/assets/4753472/c65ed129-36b1-4c1f-b8b3-3b3f2fb384c4)  ![Screenshot_1711341729](https://github.com/mohamadAliMotlagh/pixabay-demo/assets/4753472/58738db2-2ba7-4ec4-9212-e298ad6cd893)
