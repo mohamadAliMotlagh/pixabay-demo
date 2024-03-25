@@ -7,6 +7,7 @@ import coil.disk.DiskCache
 import coil.memory.MemoryCache
 import coil.request.CachePolicy
 import com.app.pixabay.android.presenter.di.searchViewModelModule
+import com.app.pixabay.android.stringprovider.stringProviderModule
 import com.app.pixabay.search.di.navigator
 import initKoin
 import org.koin.android.ext.koin.androidContext
@@ -16,7 +17,11 @@ class MainApplication : Application(), ImageLoaderFactory {
         super.onCreate()
         initKoin {
             androidContext(this@MainApplication)
-            modules(navigator, searchViewModelModule)
+            modules(
+                navigator,
+                searchViewModelModule,
+                stringProviderModule
+            )
         }
     }
 

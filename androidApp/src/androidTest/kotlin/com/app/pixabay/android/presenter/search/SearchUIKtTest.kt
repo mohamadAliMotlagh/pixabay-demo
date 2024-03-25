@@ -23,7 +23,7 @@ class SearchUIKtTest {
     fun testSearchResultsDisplayed() {
         // Given
         var searchQuery = "Fruits"
-        val itemsList = Dummy.searchResultDomainModel
+        val itemsList = SearchResultState.Success(Dummy.searchResultDomainModel)
 
         // When
         composeTestRule.setContent {
@@ -43,7 +43,7 @@ class SearchUIKtTest {
     @Test
     fun testScrollToTag() {
         // Given
-        val itemsList = Dummy.searchResultDomainModel
+         val itemsList = SearchResultState.Success(Dummy.searchResultDomainModel)
 
         // When
         composeTestRule.setContent {
@@ -63,7 +63,7 @@ class SearchUIKtTest {
     @Test
     fun testSearchDetailDisplayed()  {
         // Given
-        val itemsList = Dummy.searchResultDomainModel
+         val itemsList = SearchResultState.Success(Dummy.searchResultDomainModel)
 
 
         // When

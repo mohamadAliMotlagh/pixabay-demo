@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="confirmation">Confirmation</string>
-    <string name="confirmation_detail">Are you sure you want to see the details?</string>
+    <string name="confirmation_detail">Do you really want to view the details?</string>
     <string name="yes">YES</string>
     <string name="cancel">CANCEL</string>
+    <string name="general_server_error">A server error has occurred.</string>
+    <string name="empty_result">No results found.</string>
+    <string name="no_internet">Your internet connection appears to be offline.</string>
+    <string name="unknown_error">An unknown error has occurred.</string>
+    <string name="initial_query">fruits</string>
 </resources>
