@@ -2,12 +2,12 @@ package com.app.pixabay.search.data
 
 import com.app.pixabay.search.data.local.SearchLocalDataSource
 import com.app.pixabay.search.data.mapper.RemoteSearchResultMapper
+import com.app.pixabay.search.data.mapper.exceptionMapper
 import com.app.pixabay.search.data.remote.SearchRemoteDataSource
 import com.app.pixabay.search.domain.SearchError
 import com.app.pixabay.search.domain.SearchRepository
 import com.app.pixabay.search.domain.model.SearchResultDomainModel
 import io.ktor.utils.io.errors.IOException
-import kotlinx.coroutines.flow.map
 
 class SearchRepositoryImpl(
     private val remote: SearchRemoteDataSource,
@@ -61,21 +61,8 @@ class SearchRepositoryImpl(
 
             mappedResult
         } else {
-            Result.failure(exceptionHandler(result.exceptionOrNull()))
+            Result.failure(exceptionMapper(result.exceptionOrNull()))
         }
     }
 
-
-    private fun exceptionHandler(result: Throwable?): Throwable {
-        val exception = result ?: Exception("Unknown error")
-        return when (exception) {
-            is IOException -> {
-                SearchError.Network
-            }
-
-            else -> {
-                SearchError.General
-            }
-        }
-    }
 }

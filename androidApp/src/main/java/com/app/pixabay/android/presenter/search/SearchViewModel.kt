@@ -18,7 +18,11 @@ class SearchViewModel(
     private val repository: SearchRepository,
     private val navigator: Navigator
 ) : ViewModel() {
-    private val _searchQueryFlow = MutableStateFlow("fruits")
+     companion object{
+         const val INITIAL_QUERY = "fruits"
+     }
+
+    private val _searchQueryFlow = MutableStateFlow(INITIAL_QUERY)
     val searchQueryFlow = _searchQueryFlow.asStateFlow()
 
     private val _resultFlow = MutableStateFlow<SearchResultState>(SearchResultState.Loading)

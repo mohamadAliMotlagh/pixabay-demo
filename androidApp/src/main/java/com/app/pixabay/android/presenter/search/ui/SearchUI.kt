@@ -13,6 +13,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import com.app.pixabay.android.R
 import com.app.pixabay.android.presenter.dialog.DialogScreen
 import com.app.pixabay.android.presenter.search.SearchResultState
 import com.app.pixabay.search.domain.model.SearchResultDomainModel
@@ -53,10 +55,10 @@ fun SearchUI(
 
         showConfirmDialog.value?.let {
             DialogScreen(
-                title = "Confirmation",
-                description = "Are you sure you want to see the details?",
-                positiveButtonText = "YES",
-                negativeButtonText = "CANCEL",
+                title = stringResource(R.string.confirmation),
+                description = stringResource(R.string.confirmation_detail),
+                positiveButtonText = stringResource(R.string.yes),
+                negativeButtonText = stringResource(R.string.cancel),
                 onPositiveButtonClick = {
                     onItemClick(it)
                     showConfirmDialog.value = null
