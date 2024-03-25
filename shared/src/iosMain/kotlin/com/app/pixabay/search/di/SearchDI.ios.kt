@@ -23,26 +23,3 @@ actual val sqlDriverModule: Module =
         }
     }
 
-fun initKoin() {
-    startKoin {
-        modules(
-            ktorProvider,
-            dispatchersModule,
-        )
-        modules(searchModules())
-    }
-}
-
-class InjectHelper : KoinComponent {
-    private val searchRepository: SearchRepository by inject()
-    private val scope = CoroutineScope(Dispatchers.Main)
-
-    fun search(
-        query: String,
-        success: (List<SearchResultDomainModel>) -> Unit,
-    ) {
-        scope.launch {
-            success(searchRepository.search(query).getOrDefault(listOf()))
-        }
-    }
-}
