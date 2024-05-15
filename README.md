@@ -1,9 +1,9 @@
 
-### Kmm android and ios app
+### KMM android and iOS app
 The project is developed using Kotlin Multiplatform Mobile and incorporates essential libraries, including:
 
 - **Jetpack Compose**
-- **SwiftUI(for ios app)**
+- **SwiftUI(for iOS app)**
 - **Koin(DI)**
 - **Coroutines**
 - **Coil**
@@ -36,7 +36,7 @@ the presentation layer is on androidApp module.
 ![Screenshot_1711341698](https://github.com/mohamadAliMotlagh/pixabay-demo/assets/4753472/c65ed129-36b1-4c1f-b8b3-3b3f2fb384c4)  ![Screenshot_1711341729](https://github.com/mohamadAliMotlagh/pixabay-demo/assets/4753472/58738db2-2ba7-4ec4-9212-e298ad6cd893)
 
 
-### IOS APP: 
+### iOS APP: 
 
 
 <img width="200" alt="Screenshot 2024-02-16 at 01 08 13" src="https://github.com/mohamadAliMotlagh/pixabay-demo/assets/4753472/15e8113e-f335-4b11-b9a8-566ba0ea3f0c">
