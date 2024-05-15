@@ -1,5 +1,5 @@
 
-### Kmm android and iOS app
+### KMM android and iOS app
 The project is developed using Kotlin Multiplatform Mobile and incorporates essential libraries, including:
 
 - **Jetpack Compose**
