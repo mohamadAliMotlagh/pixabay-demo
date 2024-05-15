@@ -1,5 +1,7 @@
 package com.app.pixabay.android.presenter.search
 
+import android.util.Log
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.app.pixabay.android.R
@@ -11,6 +13,7 @@ import com.app.pixabay.search.domain.SearchRepository
 import com.app.pixabay.search.domain.SearchUseCase
 import com.app.pixabay.search.domain.model.SearchResultDomainModel
 import kotlinx.coroutines.FlowPreview
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest
@@ -20,7 +23,7 @@ import kotlinx.coroutines.launch
 class SearchViewModel(
     private val searchUseCase: SearchUseCase,
     private val navigator: Navigator,
-    private val stringProvider: StringProvider
+    private val stringProvider: StringProvider,
 ) : ViewModel() {
 
     private val _searchQueryFlow =
@@ -44,9 +47,12 @@ class SearchViewModel(
         viewModelScope.launch {
             _searchQueryFlow.debounce(500).collectLatest {
                 _resultFlow.value = SearchResultState.Loading
-                searchUseCase(it)
-                    .onSuccess {
-                        _resultFlow.value = SearchResultState.Success(it)
+                searchUseCase(it).collect {
+                    it.onSuccess {
+                        launch {
+                            _resultFlow.value = SearchResultState.Success(it)
+                        }
+
                     }.onFailure {
 
                         _resultFlow.value = when (it) {
@@ -67,11 +73,12 @@ class SearchViewModel(
                             }
                         }
 
-
                     }
+                }
             }
         }
     }
+
 
     fun navigateToSearchDetail(id: String) {
         navigator.navigate(SearchDetailDestination.createDetailPath(id))

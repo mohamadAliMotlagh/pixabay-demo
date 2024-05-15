@@ -1,6 +1,7 @@
 package com.app.pixabay.android.presenter.search.ui
 
 import android.content.res.Configuration.ORIENTATION_LANDSCAPE
+import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
@@ -34,6 +35,7 @@ fun SearchResult(
         verticalItemSpacing = 16.dp,
         horizontalArrangement = Arrangement.spacedBy(16.dp),
         content = {
+
             items(list.invoke(), key = { it.id }) {
                 SearchResultItem(it,onItemClicked)
             }

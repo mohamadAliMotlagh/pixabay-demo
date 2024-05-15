@@ -13,7 +13,6 @@ import com.app.pixabay.search.domain.FindResultByIdUseCase
 import com.app.pixabay.search.domain.SearchRepository
 import com.app.pixabay.search.domain.SearchUseCase
 import com.app.pixabay.search.domain.findResultById
-import com.app.pixabay.search.domain.model.SearchResultDomainModel
 import com.app.pixabay.search.domain.searchUseCase
 import org.koin.core.module.Module
 import org.koin.core.qualifier.named
@@ -52,17 +51,19 @@ private val searchRemoteDataSource =
         single<SearchRemoteDataSource> { SearchRemoteDataSourceImpl(get()) }
     }
 
-private fun searchUseCaseModule() = module {
-    single<SearchUseCase> {
-        SearchUseCase { searchUseCase(get(), it) }
+private fun searchUseCaseModule() =
+    module {
+        single<SearchUseCase> {
+            SearchUseCase { searchUseCase(get(), it) }
+        }
     }
-}
 
-private fun findResultByIdUseCaseModule() = module {
-    single<FindResultByIdUseCase> {
-        FindResultByIdUseCase { findResultById(get(), it) }
+private fun findResultByIdUseCaseModule() =
+    module {
+        single<FindResultByIdUseCase> {
+            FindResultByIdUseCase { findResultById(get(), it) }
+        }
     }
-}
 
 internal fun searchModules(): List<Module> =
     listOf(
@@ -73,5 +74,5 @@ internal fun searchModules(): List<Module> =
         searchApi,
         searchRemoteDataSource,
         searchUseCaseModule(),
-        findResultByIdUseCaseModule()
+        findResultByIdUseCaseModule(),
     )

@@ -14,14 +14,11 @@ struct ContentView: View {
         NavigationView {
             ScrollView {
                 LazyVGrid(columns: self.columns, spacing: 0) {
-                    ForEach(viewModel.searchResults, id: \.id) {model in
+                    ForEach(viewModel.searchResults1, id: \.id) {model in
                             CustomImageView(imageModel: model)
                         }
                     }
-                } .navigationTitle("Pixabay Photos")
-                .navigationBarItems(trailing: Button("Search") {
-                    viewModel.search(query: "test")
-                })
+                }.navigationTitle("Pixabay Photos")
             }
             .searchable(text: $viewModel.value)
             
@@ -36,10 +33,9 @@ struct CustomImageView: View {
                        WebImage(url: URL(string: imageModel.thumbnail))
                            .resizable()
                            .aspectRatio(CGFloat(imageModel.ratio), contentMode: .fit)
-                           
-                           .border(Color.black)
                            .clipped()
-                       Text("")
+                           .cornerRadius(16)
+                   
                    }
 /// TODO Placeholder
     }

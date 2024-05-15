@@ -3,6 +3,7 @@ package com.app.pixabay.search.data.local
 import com.app.pixabay.database.PixPayBackDatabase
 import com.app.pixabay.search.domain.model.SearchResultDomainModel
 import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 
 class SearchLocalDataSourceImpl(

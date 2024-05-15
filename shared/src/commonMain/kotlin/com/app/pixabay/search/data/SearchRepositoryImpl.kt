@@ -7,32 +7,35 @@ import com.app.pixabay.search.data.remote.SearchRemoteDataSource
 import com.app.pixabay.search.domain.SearchError
 import com.app.pixabay.search.domain.SearchRepository
 import com.app.pixabay.search.domain.model.SearchResultDomainModel
-import io.ktor.utils.io.errors.IOException
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
 
 class SearchRepositoryImpl(
     private val remote: SearchRemoteDataSource,
     private val local: SearchLocalDataSource,
     private val remoteSearchResultMapper: RemoteSearchResultMapper,
 ) : SearchRepository {
-    /**
-     * Performs a search operation for the given query.
-     * The search is first attempted locally, and if not found,
-     * it's then attempted remotely.
-     * @param query The search query.
-     * @return A Result object containing a list of search results.
-     */
-    override suspend fun search(query: String): Result<List<SearchResultDomainModel>> {
-        if (query.isEmpty()) {
-            return Result.success(listOf())
-        }
+    override suspend fun search(query: String): Flow<Result<List<SearchResultDomainModel>>> =
+        flow {
+            if (query.isEmpty()) {
+                emit(Result.success(listOf()))
+            } else {
+                val localResult = loadFromLocal(query)
+                if (localResult.isSuccess) {
+                    emit(localResult)
+                }
 
-        val localResult = loadFromLocal(query)
-        if (localResult.isSuccess) {
-            return localResult
-        }
+                val remoteResult = loadFromRemote(query)
+                if (remoteResult.isSuccess) {
+                    emit(remoteResult)
+                }
 
-        return loadFromRemote(query)
-    }
+                if (remoteResult.isFailure && localResult.isFailure) {
+                    emit(remoteResult)
+                }
+            }
+        }
 
     override suspend fun findSearchResultById(id: String): SearchResultDomainModel {
         return local.findSearchResultById(id)
@@ -58,11 +61,9 @@ class SearchRepositoryImpl(
                 }
                 local.save(query, it)
             }
-
             mappedResult
         } else {
             Result.failure(exceptionMapper(result.exceptionOrNull()))
         }
     }
-
 }
