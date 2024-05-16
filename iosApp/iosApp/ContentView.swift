@@ -1,5 +1,5 @@
 //
-//  StaggeredGrid.swift
+//  ContentView.swift
 //  iosApp
 //
 //  Created by MohamadAli (Hosein) Motlagh on 5/16/24.
@@ -10,7 +10,7 @@ import shared
 import SDWebImageSwiftUI
 import SwiftUI
 
-struct StaggeredGrid: View {
+struct ContentView: View {
     @StateObject var viewModel = SearchViewModel()
 
     let spacing: CGFloat = 12
@@ -27,8 +27,8 @@ struct StaggeredGrid: View {
     }
 }
 
-struct StaggeredGrid_Preview: PreviewProvider {
+struct ContentView_Preview: PreviewProvider {
     static var previews: some View{
-        StaggeredGrid()
+        ContentView()
     }
 }

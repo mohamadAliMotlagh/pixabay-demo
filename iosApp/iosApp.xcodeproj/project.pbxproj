@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557BA273AAA24004C7B11 /* Assets.xcassets */; };
-		164A42102BF5785C0043FB38 /* StaggeredGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164A420F2BF5785C0043FB38 /* StaggeredGrid.swift */; };
+		164A42102BF5785C0043FB38 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164A420F2BF5785C0043FB38 /* ContentView.swift */; };
 		16B2C03A2BAF9C5E0074D1A6 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B2C0392BAF9C5E0074D1A6 /* SearchViewModel.swift */; };
 		16B2C03D2BAFD0000074D1A6 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 16B2C03C2BAFD0000074D1A6 /* SDWebImageSwiftUI */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
@@ -31,7 +31,7 @@
 
 /* Begin PBXFileReference section */
 		058557BA273AAA24004C7B11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		164A420F2BF5785C0043FB38 /* StaggeredGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaggeredGrid.swift; sourceTree = "<group>"; };
+		164A420F2BF5785C0043FB38 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		16B2C0392BAF9C5E0074D1A6 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
 		2AE47FA82BF661EC00759ED3 /* WaterfallLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterfallLayout.swift; sourceTree = "<group>"; };
@@ -78,7 +78,7 @@
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 				16B2C0392BAF9C5E0074D1A6 /* SearchViewModel.swift */,
 				2AE47FA82BF661EC00759ED3 /* WaterfallLayout.swift */,
-				164A420F2BF5785C0043FB38 /* StaggeredGrid.swift */,
+				164A420F2BF5785C0043FB38 /* ContentView.swift */,
 			);
 			path = iosApp;
 			sourceTree = "<group>";
@@ -190,7 +190,7 @@
 			files = (
 				16B2C03A2BAF9C5E0074D1A6 /* SearchViewModel.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
-				164A42102BF5785C0043FB38 /* StaggeredGrid.swift in Sources */,
+				164A42102BF5785C0043FB38 /* ContentView.swift in Sources */,
 				2AE47FA92BF661EC00759ED3 /* WaterfallLayout.swift in Sources */,
 				7555FF83242A565900829871 /* CustomImageView.swift in Sources */,
 			);
