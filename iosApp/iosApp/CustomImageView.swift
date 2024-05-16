@@ -1,3 +1,11 @@
+//
+//  SearchViewModel.swift
+//  iosApp
+//
+//  Created by MohamadAli (Hosein) Motlagh on 3/24/24.
+//  Copyright © 2024. All rights reserved.
+//
+
 import SwiftUI
 import shared
 import SDWebImageSwiftUI

@@ -1,7 +1,6 @@
-import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
 import com.codingfeline.buildkonfig.compiler.FieldSpec.Type.STRING
-import org.gradle.api.internal.properties.GradleProperties
 import org.jetbrains.kotlin.konan.properties.Properties
+import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -78,33 +77,33 @@ kotlin {
 
 buildkonfig {
     val properties = Properties()
-    val localPropertiesFile = project.rootProject.file("apikey.properties")
+    val localPropertiesFile = project.rootProject.file("env.properties")
 
     if (localPropertiesFile.exists()) {
         properties.load(localPropertiesFile.inputStream())
     } else {
-        throw GradleException("Error: apikey.properties file not found. Please create it in the project root directory and define the API_KEY property.")
+        throw GradleException("Error: env.properties file not found. Please create it in the project root directory and define the API_KEY property.")
     }
 
     try {
         properties.load(localPropertiesFile.inputStream())
     } catch (e: Exception) {
         throw GradleException(
-            "Error: Failed to load apikey.properties file. Please ensure the file is valid.",
+            "Error: Failed to load env.properties file. Please ensure the file is valid.",
             e
         )
     }
 
-    val apiKey = properties.getProperty("API_KEY") ?: ""
-    if (apiKey.isEmpty()){
-        throw GradleException("Error: API_KEY witch located in apikey.properties is Empty. please provide an api key from this site: https://pixabay.com/service/about/api/")
+    val apikey = properties.getProperty("API_KEY") ?: ""
+    if (apikey.isEmpty()){
+        throw GradleException("Error: Error: API_KEY not found! Forgot to set it at ../env.properties file?. If you don't have it, you can get one here https://pixabay.com/service/about/api")
     }
     packageName = "com.app.pixabay"
     objectName = "SharedConfig"
     //exposeObjectWithName = "YourAwesomePublicConfig"
 
     defaultConfigs {
-        buildConfigField(STRING, "api_key", apiKey)
+        buildConfigField(STRING, "api_key", apikey)
     }
 }
 

@@ -2,7 +2,7 @@
 //  StaggeredGrid.swift
 //  iosApp
 //
-//  Created by hosein on 5/16/24.
+//  Created by MohamadAli (Hosein) Motlagh on 5/16/24.
 //  Copyright © 2024 orgName. All rights reserved.
 //
 

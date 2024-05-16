@@ -2,8 +2,8 @@
 //  SearchViewModel.swift
 //  iosApp
 //
-//  Created by hosein on 3/24/24.
-//  Copyright © 2024 orgName. All rights reserved.
+//  Created by MohamadAli (Hosein) Motlagh on 3/24/24.
+//  Copyright © 2024. All rights reserved.
 //
 
 import shared
