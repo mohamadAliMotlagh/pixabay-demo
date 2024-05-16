@@ -12,11 +12,19 @@ import SDWebImageSwiftUI
 
 struct CustomImageView: View {
     let imageModel: SearchResultDomainModel
+
+    @State private var isLoaded = false
+
     var body: some View {
-        WebImage(url: URL(string: imageModel.thumbnail))
-            .resizable()
-            .aspectRatio(CGFloat(imageModel.ratio), contentMode: .fit)
-            .clipped()
-            .cornerRadius(16)
+        Color(.quaternarySystemFill) // Placeholder
+            .overlay {
+                WebImage(url: URL(string: imageModel.thumbnail))
+                    .resizable()
+                    .onSuccess { _,_,_  in isLoaded = true }
+                    .aspectRatio(contentMode: .fit)
+                    .animation(.default, value: isLoaded)
+            }
+            .aspectRatio(CGFloat(imageModel.ratio), contentMode: .fill)
+            .mask(RoundedRectangle(cornerRadius: 16))
     }
 }

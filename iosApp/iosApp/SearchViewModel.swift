@@ -12,8 +12,7 @@ import Combine
 
 class SearchViewModel: ObservableObject {
     let searchRepo = InjectHelper()
-    @Published var searchResults1: [SearchResultDomainModel] = []
-    @Published var searchResults2: [SearchResultDomainModel] = []
+    @Published var searchResults: [SearchResultDomainModel] = []
     @Published var errorMessage: String?
     @Published var value: String = "Fruits"
     private var cancellables = Set<AnyCancellable>()
@@ -29,19 +28,12 @@ class SearchViewModel: ObservableObject {
     }
 
     private func search(query: String) {
-        
         searchRepo.search(query: query) { items in
-            self.searchResults1.removeAll()
-            self.searchResults2.removeAll()
-            for (index, item) in items.enumerated() {
-                if index % 2 == 0 {
-                    self.searchResults1.append(item)
-                } else {
-                    self.searchResults2.append(item)
-                }
-            }
+            self.searchResults = items
         } failure: { kotlinThrowable in
             
         }
     }
 }
+
+extension SearchResultDomainModel: Identifiable { }
