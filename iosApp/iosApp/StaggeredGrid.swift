@@ -34,7 +34,3 @@ struct StaggeredGrid_Preview: PreviewProvider {
         StaggeredGrid()
     }
 }
-
-extension SearchViewModel {
-    var searchResults: [SearchResultDomainModel] { searchResults1 + searchResults2 }
-}
