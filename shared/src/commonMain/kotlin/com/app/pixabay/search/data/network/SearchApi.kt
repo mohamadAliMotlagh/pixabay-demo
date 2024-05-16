@@ -6,7 +6,7 @@ import com.app.pixabay.core.network.receiveResult
 import com.app.pixabay.search.data.model.SearchResultDataModel
 
 object Const {
-    const val APIKey = ""
+    const val APIKey = ""//  you need an api key from https://pixabay.com/
 }
 
 class SearchApi(private val api: KtorApi) : KtorApi by api {
