@@ -19,9 +19,7 @@ struct StaggeredGrid: View {
         NavigationView {
             ScrollView {
                 Waterfall {
-                    ForEach(viewModel.searchResults) { model in
-                        CustomImageView(imageModel: model)
-                    }
+                    ForEach(viewModel.searchResults, content: CustomImageView.init)
                 }
                 .padding(.horizontal)
             }.navigationTitle("Pixabay Photos")
