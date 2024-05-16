@@ -18,18 +18,12 @@ struct StaggeredGrid: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                HStack(alignment: .top, spacing: spacing) {
-                    LazyVStack {
-                        ForEach(viewModel.searchResults1, id: \.id) { model in
-                            CustomImageView(imageModel: model)
-                        }
+                Waterfall {
+                    ForEach(viewModel.searchResults, id: \.id) { model in
+                        CustomImageView(imageModel: model)
                     }
-                    LazyVStack {
-                        ForEach(viewModel.searchResults2, id: \.id) { model in
-                            CustomImageView(imageModel: model)
-                        }
-                    }
-                }.padding(10)
+                }
+                .padding(.horizontal)
             }.navigationTitle("Pixabay Photos")
         }.searchable(text: $viewModel.value)
     }
@@ -39,4 +33,8 @@ struct StaggeredGrid_Preview: PreviewProvider {
     static var previews: some View{
         StaggeredGrid()
     }
+}
+
+extension SearchViewModel {
+    var searchResults: [SearchResultDomainModel] { searchResults1 + searchResults2 }
 }
