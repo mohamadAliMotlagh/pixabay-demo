@@ -13,6 +13,7 @@
 		16B2C03A2BAF9C5E0074D1A6 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B2C0392BAF9C5E0074D1A6 /* SearchViewModel.swift */; };
 		16B2C03D2BAFD0000074D1A6 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 16B2C03C2BAFD0000074D1A6 /* SDWebImageSwiftUI */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
+		2AE47FA92BF661EC00759ED3 /* WaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE47FA82BF661EC00759ED3 /* WaterfallLayout.swift */; };
 		7555FF83242A565900829871 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* CustomImageView.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		164A420F2BF5785C0043FB38 /* StaggeredGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaggeredGrid.swift; sourceTree = "<group>"; };
 		16B2C0392BAF9C5E0074D1A6 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
+		2AE47FA82BF661EC00759ED3 /* WaterfallLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterfallLayout.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 				058557D7273AAEEB004C7B11 /* Preview Content */,
 				16B2C0392BAF9C5E0074D1A6 /* SearchViewModel.swift */,
+				2AE47FA82BF661EC00759ED3 /* WaterfallLayout.swift */,
 				164A420F2BF5785C0043FB38 /* StaggeredGrid.swift */,
 			);
 			path = iosApp;
@@ -200,6 +203,7 @@
 				16B2C03A2BAF9C5E0074D1A6 /* SearchViewModel.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				164A42102BF5785C0043FB38 /* StaggeredGrid.swift in Sources */,
+				2AE47FA92BF661EC00759ED3 /* WaterfallLayout.swift in Sources */,
 				7555FF83242A565900829871 /* CustomImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
