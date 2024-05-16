@@ -1,7 +1,11 @@
 import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
+import com.codingfeline.buildkonfig.compiler.FieldSpec.Type.STRING
+import org.gradle.api.internal.properties.GradleProperties
+import org.jetbrains.kotlin.konan.properties.Properties
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
+    id("com.codingfeline.buildkonfig")
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.sqlDelight)
     kotlin("plugin.serialization")
@@ -69,6 +73,38 @@ kotlin {
             implementation(libs.ktor.ios)
             implementation(libs.sqlDelight.native)
         }
+    }
+}
+
+buildkonfig {
+    val properties = Properties()
+    val localPropertiesFile = project.rootProject.file("apikey.properties")
+
+    if (localPropertiesFile.exists()) {
+        properties.load(localPropertiesFile.inputStream())
+    } else {
+        throw GradleException("Error: apikey.properties file not found. Please create it in the project root directory and define the API_KEY property.")
+    }
+
+    try {
+        properties.load(localPropertiesFile.inputStream())
+    } catch (e: Exception) {
+        throw GradleException(
+            "Error: Failed to load apikey.properties file. Please ensure the file is valid.",
+            e
+        )
+    }
+
+    val apiKey = properties.getProperty("API_KEY") ?: ""
+    if (apiKey.isEmpty()){
+        throw GradleException("Error: API_KEY witch located in apikey.properties is Empty. please provide an api key from this site: https://pixabay.com/service/about/api/")
+    }
+    packageName = "com.app.pixabay"
+    objectName = "SharedConfig"
+    //exposeObjectWithName = "YourAwesomePublicConfig"
+
+    defaultConfigs {
+        buildConfigField(STRING, "api_key", apiKey)
     }
 }
 

@@ -18,5 +18,6 @@ buildscript {
     dependencies {
         classpath(libs.gradle)
         classpath(libs.ktlint.gradle)
+        classpath(libs.buildkonfig.gradle.plugin)
     }
 }
