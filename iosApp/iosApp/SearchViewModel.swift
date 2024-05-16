@@ -29,6 +29,7 @@ class SearchViewModel: ObservableObject {
     }
 
     private func search(query: String) {
+        
         searchRepo.search(query: query) { items in
             self.searchResults1.removeAll()
             self.searchResults2.removeAll()
@@ -39,6 +40,8 @@ class SearchViewModel: ObservableObject {
                     self.searchResults2.append(item)
                 }
             }
+        } failure: { kotlinThrowable in
+            
         }
     }
 }

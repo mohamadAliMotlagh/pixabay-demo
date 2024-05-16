@@ -16,10 +16,15 @@ class InjectHelper : KoinComponent {
     fun search(
         query: String,
         success: (List<SearchResultDomainModel>) -> Unit,
+        failure:(Throwable) -> Unit
     ) {
         scope.launch {
             usecase(query).collectLatest {
-                success(it.getOrDefault(listOf()))
+                it.onSuccess {
+                    success(it)
+                }.onFailure{
+                    failure(it)
+                }
             }
         }
     }
