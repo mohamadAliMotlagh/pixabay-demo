@@ -4,14 +4,13 @@ import shared
 @main
 struct iOSApp: App {
     
-    init(){
+    init() {
         KoinStarterKt.doInitKoin()
     }
     
 	var body: some Scene {
 		WindowGroup {
             StaggeredGrid()
-			//ContentView()
 		}
 	}
 }
