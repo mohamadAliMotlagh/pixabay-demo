@@ -12,9 +12,11 @@ import SDWebImageSwiftUI
 
 struct CustomImageView: View {
     let imageModel: SearchResultDomainModel
+
     var body: some View {
         WebImage(url: URL(string: imageModel.thumbnail))
             .resizable()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .aspectRatio(CGFloat(imageModel.ratio), contentMode: .fit)
             .mask(RoundedRectangle(cornerRadius: 16))
     }
