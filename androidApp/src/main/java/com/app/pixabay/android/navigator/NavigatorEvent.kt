@@ -1,4 +1,4 @@
-package com.app.pixabay.core.navigator
+package com.app.pixabay.android.navigator
 
 import android.os.Bundle
 import androidx.navigation.NavOptionsBuilder

@@ -1,7 +1,5 @@
 package com.app.pixabay.search.di
 
-import com.app.pixabay.core.navigator.Navigator
-import com.app.pixabay.core.navigator.NavigatorImpl
 import com.app.pixabay.database.PixPayBackDatabase
 import com.squareup.sqldelight.android.AndroidSqliteDriver
 import com.squareup.sqldelight.db.SqlDriver
@@ -17,8 +15,4 @@ actual val sqlDriverModule: Module =
                 "PixPayBackDatabase.db",
             )
         }
-    }
-val navigator =
-    module {
-        single<Navigator> { NavigatorImpl() }
     }

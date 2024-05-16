@@ -1,19 +1,14 @@
 package com.app.pixabay.android.presenter.search
 
-import android.util.Log
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.app.pixabay.android.R
 import com.app.pixabay.android.presenter.detail.SearchDetailDestination
 import com.app.pixabay.android.stringprovider.StringProvider
-import com.app.pixabay.core.navigator.Navigator
+import com.app.pixabay.android.navigator.Navigator
 import com.app.pixabay.search.domain.SearchError
-import com.app.pixabay.search.domain.SearchRepository
 import com.app.pixabay.search.domain.SearchUseCase
-import com.app.pixabay.search.domain.model.SearchResultDomainModel
 import kotlinx.coroutines.FlowPreview
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest

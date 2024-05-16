@@ -6,9 +6,9 @@ import coil.ImageLoaderFactory
 import coil.disk.DiskCache
 import coil.memory.MemoryCache
 import coil.request.CachePolicy
+import com.app.pixabay.android.navigator.navigator
 import com.app.pixabay.android.presenter.di.searchViewModelModule
 import com.app.pixabay.android.stringprovider.stringProviderModule
-import com.app.pixabay.search.di.navigator
 import initKoin
 import org.koin.android.ext.koin.androidContext
 

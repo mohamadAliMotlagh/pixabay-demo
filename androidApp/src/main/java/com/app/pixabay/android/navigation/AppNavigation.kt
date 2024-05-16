@@ -9,8 +9,8 @@ import com.app.pixabay.android.presenter.detail.SearchDetailDestination
 import com.app.pixabay.android.presenter.detail.ui.SearchDetailScreen
 import com.app.pixabay.android.presenter.search.SearchDestination
 import com.app.pixabay.android.presenter.search.ui.SearchScreen
-import com.app.pixabay.core.navigator.Navigator
-import com.app.pixabay.core.navigator.NavigatorEvent
+import com.app.pixabay.android.navigator.Navigator
+import com.app.pixabay.android.navigator.NavigatorEvent
 
 
 @Composable

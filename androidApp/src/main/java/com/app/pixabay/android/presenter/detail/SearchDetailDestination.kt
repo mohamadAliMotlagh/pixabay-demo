@@ -3,7 +3,7 @@ package com.app.pixabay.android.presenter.detail
 import androidx.navigation.NamedNavArgument
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
-import com.app.pixabay.core.navigator.NavigationDestination
+import com.app.pixabay.android.navigator.NavigationDestination
 
 object SearchDetailDestination : NavigationDestination {
     const val RESULT_ID = "result_id"

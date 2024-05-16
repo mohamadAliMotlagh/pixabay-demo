@@ -1,4 +1,4 @@
-package com.app.pixabay.core.navigator
+package com.app.pixabay.android.navigator
 
 import androidx.compose.animation.AnimatedContentScope
 import androidx.compose.animation.EnterTransition
