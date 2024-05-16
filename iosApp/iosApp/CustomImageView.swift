@@ -14,10 +14,13 @@ struct CustomImageView: View {
     let imageModel: SearchResultDomainModel
 
     var body: some View {
-        WebImage(url: URL(string: imageModel.thumbnail))
-            .resizable()
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .aspectRatio(CGFloat(imageModel.ratio), contentMode: .fit)
+        Color(.quaternarySystemFill) // Placeholder
+            .overlay {
+                WebImage(url: URL(string: imageModel.thumbnail))
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            }
+            .aspectRatio(CGFloat(imageModel.ratio), contentMode: .fill)
             .mask(RoundedRectangle(cornerRadius: 16))
     }
 }
