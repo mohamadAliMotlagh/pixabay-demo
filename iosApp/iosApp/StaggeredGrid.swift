@@ -13,8 +13,6 @@ import SwiftUI
 struct StaggeredGrid: View {
     @StateObject var viewModel = SearchViewModel()
 
-    private let columns: [GridItem] = Array(repeating: GridItem(.flexible()), count: 2)
-    
     let spacing: CGFloat = 12
 
     var body: some View {
