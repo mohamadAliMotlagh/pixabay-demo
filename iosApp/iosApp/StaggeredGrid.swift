@@ -1,19 +1,14 @@
 import SwiftUI
 
-public struct StaggeredGrid: Layout {
-    private var columns: Int
-    private var spacing: Double
+struct StaggeredGrid: Layout {
+    var columns: Int = 2
+    var spacing: Double = 8
 
-    public init(columns: Int = 2, spacing: Double = 8) {
-        self.columns = columns
-        self.spacing = spacing
-    }
-
-    public func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
+    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
         calculateSize(for: subviews, in: proposal)
     }
 
-    public func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
+    func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
         calculateSize(for: subviews, in: proposal, placeInBounds: bounds)
     }
 
