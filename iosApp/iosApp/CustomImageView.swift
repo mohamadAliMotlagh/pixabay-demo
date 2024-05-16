@@ -16,7 +16,6 @@ struct CustomImageView: View {
         WebImage(url: URL(string: imageModel.thumbnail))
             .resizable()
             .aspectRatio(CGFloat(imageModel.ratio), contentMode: .fit)
-            .clipped()
-            .cornerRadius(16)
+            .mask(RoundedRectangle(cornerRadius: 16))
     }
 }
