@@ -1,6 +1,6 @@
 import SwiftUI
 
-public struct Waterfall: Layout {
+public struct StaggeredGrid: Layout {
     private var columns: Int
     private var spacing: Double
 

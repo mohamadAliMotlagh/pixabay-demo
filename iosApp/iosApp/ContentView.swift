@@ -18,7 +18,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                Waterfall {
+                StaggeredGrid {
                     ForEach(viewModel.searchResults, content: CustomImageView.init)
                 }
                 .padding(.horizontal)
