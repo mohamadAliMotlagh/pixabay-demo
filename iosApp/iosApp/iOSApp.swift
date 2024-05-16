@@ -3,7 +3,7 @@ import shared
 
 @main
 struct iOSApp: App {
-    
+
     init() {
         KoinStarterKt.doInitKoin()
     }
@@ -11,6 +11,6 @@ struct iOSApp: App {
 	var body: some Scene {
 		WindowGroup {
             StaggeredGrid()
-		}
-	}
+        }
+    }
 }
