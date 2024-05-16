@@ -19,7 +19,7 @@ struct StaggeredGrid: View {
         NavigationView {
             ScrollView {
                 Waterfall {
-                    ForEach(viewModel.searchResults, id: \.id) { model in
+                    ForEach(viewModel.searchResults) { model in
                         CustomImageView(imageModel: model)
                     }
                 }

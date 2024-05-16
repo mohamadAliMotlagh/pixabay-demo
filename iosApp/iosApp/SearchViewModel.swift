@@ -35,3 +35,5 @@ class SearchViewModel: ObservableObject {
         }
     }
 }
+
+extension SearchResultDomainModel: Identifiable { }
