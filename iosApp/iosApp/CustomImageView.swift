@@ -13,12 +13,16 @@ import SDWebImageSwiftUI
 struct CustomImageView: View {
     let imageModel: SearchResultDomainModel
 
+    @State private var isLoaded = false
+
     var body: some View {
         Color(.quaternarySystemFill) // Placeholder
             .overlay {
                 WebImage(url: URL(string: imageModel.thumbnail))
                     .resizable()
+                    .onSuccess { _,_,_  in isLoaded = true }
                     .aspectRatio(contentMode: .fit)
+                    .animation(.default, value: isLoaded)
             }
             .aspectRatio(CGFloat(imageModel.ratio), contentMode: .fill)
             .mask(RoundedRectangle(cornerRadius: 16))
