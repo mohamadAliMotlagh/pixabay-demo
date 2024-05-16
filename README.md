@@ -35,6 +35,9 @@ the presentation layer is on androidApp module.
 ### Android APP: 
 ![Screenshot_1711341698](https://github.com/mohamadAliMotlagh/pixabay-demo/assets/4753472/c65ed129-36b1-4c1f-b8b3-3b3f2fb384c4)  ![Screenshot_1711341729](https://github.com/mohamadAliMotlagh/pixabay-demo/assets/4753472/58738db2-2ba7-4ec4-9212-e298ad6cd893)
 
+### Pixaby API:
+for access to to the api you need an ApiKey from pixaby. you can find it in here:
+[get API key](https://pixabay.com/service/about/api/)
 
 ### iOS APP: 
 
